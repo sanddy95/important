@@ -1,0 +1,112 @@
+* Customer Regsiter api : 
+
+URL : http://<magento-host>/rest/V1/customers
+METHOD : POST
+DATA IN JSON FORMAT :  
+
+{
+"customer":{
+    "email":"Test@example.com",
+    "firstname":"Aditya",
+    "lastname":"Shah",
+    "websiteId":"1",
+    "addresses":[
+        {
+            "customer_id":"1",
+            "firstname":"Aditya",
+            "lastname":"Shah",
+            "company":"ABC Manufacturing",
+            "telephone":"555-555-5555",
+            "city":"Boston",
+            "region":"Massachusetts",
+            "postcode":"02115",
+            "country_id":"US",
+            "street":[
+                "404 Main Street",
+                "PO Box 321"
+            ]
+        }
+    ]
+},
+ "password": "Account@123"
+}
+
+
+* Get Customer Details By Customer Id: 
+
+URL : http://<magento-host>/index.php/rest/V1/customers/2
+METHOD : GET
+OUTOUT  DATA:  
+
+{
+    "id": 2,
+    "group_id": 1,
+    "default_billing": "2",
+    "default_shipping": "2",
+    "created_at": "2019-06-12 06:49:38",
+    "updated_at": "2019-06-12 06:50:47",
+    "created_in": "Default Store View",
+    "email": "sandeepshah1995@gmail.com",
+    "firstname": "Aditya",
+    "lastname": "Shah",
+    "store_id": 1,
+    "website_id": 1,
+    "addresses": [
+        {
+            "id": 2,
+            "customer_id": 2,
+            "region": {
+                "region_code": "DE",
+                "region": "Delaware",
+                "region_id": 15
+            },
+            "region_id": 15,
+            "country_id": "US",
+            "street": [
+                "404 Main Street",
+                "PO Box 321"
+            ],
+            "company": "ABC Manufacturing",
+            "telephone": "555-555-5555",
+            "postcode": "02115",
+            "city": "Boston",
+            "firstname": "Aditya",
+            "lastname": "Shah",
+            "default_shipping": true,
+            "default_billing": true
+        }
+    ],
+    "disable_auto_group_change": 0,
+    "extension_attributes": {
+        "is_subscribed": false
+    }
+}
+
+* Get authentication token from admin.
+
+//API URL for authentication
+$apiURL="https://magento-269448-879170.cloudwaysapps.com/index.php/rest/V1/integration/admin/token";
+
+//parameters passing with URL
+$data = array("username" => "makwanashubham23@gmail.com", "password" => "XbGqpSM9hz");
+$data_string = json_encode($data);
+
+$ch = curl_init($apiURL);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER , false);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json","Content-Length: ".strlen($data_string)));
+$token = curl_exec($ch);
+
+//decoding generated token and saving it in a variable
+$token=  json_decode($token);
+
+
+
+* Get products detail by SKU.
+
+URL : https://magento-269448-879170.cloudwaysapps.com/index.php/rest/V1/products/Product-SKU
+METHOD : GET
+
+

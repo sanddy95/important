@@ -1,0 +1,200 @@
+https://www.youtube.com/watch?v=5yPmKrbSXxo
+
+http://techjeffyu.com/blog/magento-2-a-full-magento-2-module
+
+
+magento 2.3.1
+
+- admin blank page issue : https://community.magento.com/t5/Installing-Magento-2-x/Magento-2-3-admin-blank-error/td-p/120694
+
+
+nice blog : 
+
+- http://www.w3solver.com/magento-2-different-ways-to-reset-admin-user-password/
+
+
+folder permissions : 
+
+create a user group and assign to the directory : https://www.youtube.com/watch?v=j02c_xF6jUs
+
+https://www.envisionecommerce.com/blog/how-to-set-magento-2-file-and-folder-permissions/
+
+find ./pub/static -type d -exec chmod 777 {} \;
+
+find ./generated -type d -exec chmod 777 {} \;
+
+- never use password "admin123"
+- user admin should not be there.
+
+* magento 2.3.1
+
+magento admin blank issue : 
+
+https://community.magento.com/t5/Installing-Magento-2-x/Magento-2-3-admin-blank-error/td-p/120694
+
+solution : 
+...\vendor\magento\framework\View\Element\Template\File\Validator.php
+
+A function isPathInDirectories added a line
+
+$realPath = str_replace('\\', '/', $realPath);
+or refer below code function  
+
+protected function isPathInDirectories($path, $directories)
+{
+    if (!is_array($directories)) {        $directories = (array)$directories;
+    }    $realPath = $this->fileDriver->getRealPath($path);    
+    $realPath = str_replace('\\', '/', $realPath); // extra code added
+    foreach ($directories as $directory) {
+        if (0 === strpos($realPath, $directory)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+* m1 optimization : 
+
+https://www.cloudways.com/blog/speed-up-magento-frontend-performance/
+
+
+* magento 2 mail issue : 
+
+check -> system mail config -> to "NO" for disable mail communication.
+- use the lastest SMTP extension.
+- update the server crontab for mail : "corntab -e" to edit the cron on server.
+
+* magento 2 admin to many redirects : 
+
+solution : 
+
+1. with database access, change following record value to 1 :
+
+SELECT * FROM core_config_data where path like '%web/secure/use_in_adminhtml%';
+
+2. In the "core_config_data" table remove the value of "web/cookie/cookie_domain" and set "web/cookie/cookie_httponly" to "0". Clear the cache by removing the files in "var/cache".
+
+
+* update admin url password : 
+
+php bin/magento admin:user:create --admin-user="admin" --admin-password="admin123" --admin-email="admin@example.com" --admin-firstname="Admin" --admin-lastname="Admin"
+
+
+github readme snippet : 
+
+https://help.github.com/en/articles/basic-writing-and-formatting-syntax
+
+
+* equal height : 
+
+/*equalHeight*/
+	$.fn.extend({
+		equalHeights: function() {
+			var top = 0;
+			var row = [];
+			var classname = ('equalHeights' + Math.random()).replace('.', '');
+			$(this).each(function() {
+				var thistop = $(this).offset().top;
+				if (thistop > top) {
+					$('.' + classname).removeClass(classname);
+					top = thistop;
+				}
+				$(this).addClass(classname);
+				$(this).height('auto');
+				var h = (Math.max.apply(null, $('.' + classname).map(function() {
+					return $(this).outerHeight();
+				}).get()));
+				$('.' + classname).height(h);
+			}).removeClass(classname);
+		}
+	});	
+
+
+	$(window).load(function(){
+		$('.page-banners .eq-height-shipping').equalHeights();
+		$('.feature-content-block .eq-height-feature').equalHeights();
+		$('.product-items .product-item').equalHeights();
+		$('.feature-content-block .feature').equalHeights();
+	});
+
+	$(window).resize(function(){
+		$('.page-banners .eq-height-shipping').equalHeights();
+		$('.feature-content-block .eq-height-feature').equalHeights();
+		$('.product-items .product-item').equalHeights();
+		$('.feature-content-block .feature').equalHeights();
+	});
+
+
+http://www.wawanpro.com/pub/static/version1557484856/frontend/Wawan/wawan/en_US/js/wawan-general.js
+
+
+
+
+* magento to email validator call not found. (for plesk system)
+Store EMail Address change generate failure and are not stored
+
+solution : https://github.com/magento/magento2/issues/12255
+
+include_path = ".:/var/www/vhosts/aksuits.com/httpdocs/vendor/magento/zendframework1/library"
+
+* change php version in SSH : 
+
+https://support.plesk.com/hc/en-us/articles/115003766853-How-to-specify-command-line-command-php-version-for-SSH-user-on-the-Plesk-server-
+
+
+
+* for cron : 
+
+https://crontab.guru/
+https://crontab.guru/every-day-8am
+
+
+* js-translation.json 404
+
+ - for frontend : 
+	php bin/magento setup:static-content:deploy --theme=Codazon/fastest_grocery_gourmet_pro de_DE en_US es_ES fr_FR nl_BE nl_NL -f
+
+	deploy with specific theme="--theme=Codazon/fastest_grocery_gourmet_pro" and [lang]="de_DE en_US es_ES fr_FR nl_BE nl_NL"
+ - for backend : 
+	php bin/magento setup:static-content:deploy --theme=Magento/backend en_US -f 
+
+
+
+TO DO : 
+
+- hide other shipment methods if free shipment is applicable.
+
+* grunt : 
+
+https://www.youtube.com/watch?v=g8GvpDb3BBc
+
+- change frontend less compilation in the configuration
+
+course to do : 
+
+https://www.udemy.com/magento-magento-2-certified-developer-exam-learn-full-course/
+
+
+
+https://fishpig.co.uk/magento/optimisation/leverage-browser-caching/
+https://community.magento.com/t5/Can-Magento-do/How-do-you-add-canonical-tag-to-content-pages-on-Magento-2/m-p/121372#M3860
+https://www.cloudways.com/blog/speed-up-magento-frontend-performance/
+https://magento.stackexchange.com/questions/29968/how-to-add-expires-headers-in-magento
+https://www.google.com/search?q=Make+fewer+HTTP+requests&rlz=1C1ASUM_enIN826IN826&oq=Make+fewer+HTTP+requests&aqs=chrome..69i57j0l5.407j0j1&sourceid=chrome&ie=UTF-8#kpvalbx=1
+
+
+
+
+
+
+
+
+
+* "Could not save product ”20072“ with position 0 to category 7” in magento 2 -Bug fix"
+https://github.com/khasru/magento2UrlRewritebug
+
+
+* deploy issue
+
+- always take backup of pub/static/adminhtml and pub/static/frontend so that you can override source if issue in deploy.

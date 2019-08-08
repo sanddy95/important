@@ -1,0 +1,66 @@
+Admin Product Preview Plus for Magento 2
+https://bsscommerce.com/magento-2-extensions/magento-2-admin-product-preview-plus.html
+
+AJAX ADD TO CART AND QUICK VIEW.
+https://www.weltpixel.com/magento-2-ajax-add-to-cart-quick-view-extension.html
+
+https://bsscommerce.com/magento-2-extensions/magento-2-special-price-time-countdown-extension.html
+Countdown Timer for Magento 2
+
+https://bsscommerce.com/magento-2-extensions/magento-2-coming-soon-maintenance-page-extension.html
+Coming Soon & Maintenance Page for Magento 2
+
+https://bsscommerce.com/magento-2-extensions/magento-2-custom-order-number-extension.html
+Custom Order Number for Magento 2
+
+https://bsscommerce.com/magento-2-extensions/magento-2-customer-approval.html
+Customer Approval for Magento 2
+
+https://bsscommerce.com/magento-2-extensions/magento-2-customer-attributes-extension.html
+Customer Attributes for Magento 2
+
+https://bsscommerce.com/magento-2-extensions/magento-2-force-login-extension.html
+Force Login for Magento 2
+
+https://store.neklo.com/visual-sorting-m2-extension.html?gclid=Cj0KCQjwjpjkBRDRARIsAKv-0O2zdM4l6oLZvGwxdJzWhliLMYbPqUEVXkkhAbp7NjLEG-hrz7wpKM8aAj-_EALw_wcB
+Visual Product Sorting by Drag and Drop for Magento 2 
+
+
+TO WORK :
+
+1. Import Export Categories for Magento 2
+* https://www.mageplaza.com/magento-2-import-export-categories/
+* description : Magento 2 Import Export Categories allows admins to add a large number of categories at once. This is a great solution to help store owners to simplify their workload and increase productivity.
+* Complexity : it bit complex as we need to develop the custom import for categories like the standard magento product import.
+* time : 
+* Customer Requirements : This is a needed extension in market as normally adding categories and subcategories in magneto 2 admin takes much time. This extension can ease time as this will make user to create a simple excel | csv for the categories and import that from the admin. 
+
+
+2.
+
+files 644
+folder 755
+
+
+100 extensions : https://bsscommerce.com/blog/best-magento-2-extensions-free-download/
+
+nice : https://github.com/magearray
+
+
+
+DEVELOPER-DEBUG TOOL [M2]
+https://cedcommerce.com/magento-2-extensions/developer-debug-tool?utm_source=bsscommerce
+
+
+https://github.com/SchumacherFM/Magento2-Pace?utm_source=bsscommerce
+
+Reward Points
+https://marketplace.magento.com/brainacts-reward-points.html?utm_source=bsscommerce
+
+Wishlist Notification
+https://marketplace.magento.com/magenerds-module-wishlist-notification.html?utm_source=bsscommerce
+
+Wishlist Notification
+https://marketplace.magento.com/magenerds-module-wishlist-notification.html
+
+
